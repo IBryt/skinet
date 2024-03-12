@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers;
 
+[ApiExplorerSettings(IgnoreApi = true)]
 public class BuggyController : BaseApiController
 {
     private readonly StoreContext _context;
@@ -18,7 +19,7 @@ public class BuggyController : BaseApiController
     {
         var thing = _context.Products.Find(42);
         if (thing == null)
-        { 
+        {
             return NotFound(new ApiResponse(404));
         }
         return Ok();

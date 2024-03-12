@@ -6,7 +6,7 @@ namespace API.Middleware;
 
 public class ExceptionMiddleware
 {
-    public const int INTERNAL_SERVER_ERROR = 500;
+    private const int INTERNAL_SERVER_ERROR = 500;
 
     private readonly RequestDelegate _next;
     private readonly ILogger<ExceptionMiddleware> _logger;
