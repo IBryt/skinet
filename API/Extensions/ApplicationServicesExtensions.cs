@@ -16,6 +16,15 @@ public static class ApplicationServicesExtensions
         {
             options.InvalidModelStateResponseFactory = ConfigureInvalidModelStateResponseFactory;
         });
+
+        services.AddCors(options =>
+        {
+            options.AddPolicy("AllowSpecificOrigin",
+                builder => builder.WithOrigins("https://localhost:4200")
+                                  .AllowAnyHeader()
+                                  .AllowAnyMethod());
+        });
+
         return services;
     }
 

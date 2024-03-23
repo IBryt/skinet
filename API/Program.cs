@@ -18,6 +18,8 @@ builder.Services.AddSwaggerDocumentation();
 
 var app = builder.Build();
 
+app.UseCors("AllowSpecificOrigin");
+
 app.UseMiddleware<ExceptionMiddleware>();
 
 app.UseStatusCodePagesWithReExecute("/errors/{0}");
